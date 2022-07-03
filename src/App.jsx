@@ -1,9 +1,14 @@
+import { Footer } from "./layout/Footer";
+import { Header } from "./layout/Header";
+import {Shop} from "./components/Shop"
 
 function App() {
   return (
-    <div className="App">
-      <main>h1</main>
-    </div>
+    <>
+      <Header/>
+      <Shop/>
+      <Footer/>
+    </>
   );
 }
 
