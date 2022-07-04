@@ -12,7 +12,7 @@ function GoodsItem(props) {
         <p>{description}</p>
       </div>
       <div className="card-action">
-          <button className="btn">Купить</button>
+          <button className="btn red darken-4">Купить</button>
           <span className="right" style={{fontSize: '20px'}}>Цена {price}</span>
         </div>
     </div>
