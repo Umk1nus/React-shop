@@ -1,9 +1,9 @@
 function Basket(props) {
 
-  const {quantity = 0} = props;
+  const {quantity = 0, handleBasketShow = Function.prototype} = props;
 
   return (
-    <div className="cart red darken-4 white-text">
+    <div className="cart red darken-4 white-text" onClick={handleBasketShow}>
       <i class="material-icons">add_shopping_cart</i>
       {quantity ? <span className="cart-cuantity">{quantity}</span> : null}
     </div>
