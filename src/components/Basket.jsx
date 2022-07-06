@@ -4,7 +4,7 @@ function Basket(props) {
 
   return (
     <div className="cart red darken-4 white-text" onClick={handleBasketShow}>
-      <i class="material-icons">add_shopping_cart</i>
+      <i className="material-icons">add_shopping_cart</i>
       {quantity ? <span className="cart-cuantity">{quantity}</span> : null}
     </div>
   )

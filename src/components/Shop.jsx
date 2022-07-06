@@ -12,6 +12,32 @@ function Shop() {
   const [order, setOrder] = useState([]);
   const [isBasketShow, setBasketShow] = useState(false)
 
+  const addQuantity = (item) => {
+    const newOrder = order.map(el => {
+      if (el.id === item) {
+        const newQuantity = el.quantity + 1;
+        return {
+          ...el,
+          quantity: newQuantity,
+        }
+      } else return el;
+    })
+    setOrder(newOrder);
+  }
+
+  const removeQuantity = (item) => {
+    const newOrder = order.map(el => {
+      if (el.id === item) {
+        const newQuantity = el.quantity - 1;
+        return {
+          ...el,
+          quantity: newQuantity >= 0 ? newQuantity : 0,
+        }
+      } else return el;
+    })
+    setOrder(newOrder);
+  }
+
   const handleBasketShow = () => {
     setBasketShow(!isBasketShow);
   }
@@ -63,7 +89,7 @@ function Shop() {
       <Basket quantity={order.length} handleBasketShow={handleBasketShow}/>
       {loading ?  <Preloader/> : <GoodsList goods={goods} addToBasket={addToBasket}/>}
       {
-        isBasketShow && <BasketList order={order} handleBasketShow={handleBasketShow} removeFromBasket={removeFromBasket}/>
+        isBasketShow && <BasketList order={order} handleBasketShow={handleBasketShow} removeFromBasket={removeFromBasket} addQuantity={addQuantity} removeQuantity={removeQuantity}/>
       }
     </main>
   )
